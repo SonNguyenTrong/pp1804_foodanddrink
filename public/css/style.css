@@ -1,0 +1,25 @@
+.top-panel{
+    background-color: #efefef;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.75;
+    font-family: Roboto, sans-serif;
+    color: #767676;
+
+}
+
+.header-container{
+    background-attachment: scroll;
+    display: block;
+    
+}
+
+.header-container-wrap{
+    position: relative;
+    z-index: 10;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.4285rem;
+    padding-right: 1.4285rem;
+}
