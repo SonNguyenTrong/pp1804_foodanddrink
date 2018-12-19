@@ -1,25 +1,30 @@
-.top-panel{
-    background-color: #efefef;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.75;
-    font-family: Roboto, sans-serif;
-    color: #767676;
+*{margin: 0; padding: 0;}
+html,body{
+    width: 100%;
+    height: 100%;
+    font-family: 'Noto Sans', sans-serif;
+}
+.top {
+    width: 100%;
+    height: 100%;
+    background:url("/img/food.jpg");
+    background-size: cover;
+}
+.menutren{
+    border-bottom: 1px solid grey;
+    font-family: 'Noto Sans', sans-serif;
+}
+.menutrenphai li a{
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+}
+.trichdan{
 
 }
-
-.header-container{
-    background-attachment: scroll;
-    display: block;
-    
-}
-
-.header-container-wrap{
-    position: relative;
-    z-index: 10;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.4285rem;
-    padding-right: 1.4285rem;
+.toprate{
+    text-transform: uppercase;
+    font-size:30px;
 }
