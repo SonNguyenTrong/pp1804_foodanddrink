@@ -12,9 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.master');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'admin'], function () {
+	Route::resource('users', 'UserController');
+	Route::get('/edit/user/{id}', 'UserController@edituser')->name('edituser');
+	Route::post('/edit/user/{id}', 'UserController@updateuser')->name('updateuser');
+	Route::get('/show/user/{id}', 'UserController@showuser')->name('showuser');
+});
+
+

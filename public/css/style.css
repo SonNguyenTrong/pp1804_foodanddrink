@@ -1,25 +1,103 @@
-.top-panel{
-    background-color: #efefef;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.75;
-    font-family: Roboto, sans-serif;
-    color: #767676;
-
+*{margin: 0; padding: 0;}
+html,body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Noto Sans', sans-serif;
 }
-
-.header-container{
-    background-attachment: scroll;
-    display: block;
-    
+.top {
+    width: 100%;
+    height: 100%;
+    background:url("/img/food.jpg");
+    background-size: cover;
 }
-
-.header-container-wrap{
+.menutren {
+    border-bottom: 1px solid grey;
+    font-family: 'Noto Sans', sans-serif;
+}
+.menutrenphai li a {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+}
+.banner {
+    color:#423333;
+}
+.toprate {
+    text-transform: uppercase;
+    font-size:30px;
+    color:#523636;
+}
+.tieudeto{
     position: relative;
-    z-index: 10;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.4285rem;
-    padding-right: 1.4285rem;
+}
+.tieudeto:after {
+    content:'';
+    width: 100px;
+    height: 3px;
+    background: #29759a;
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    bottom: -10px;
+}
+.trichdan{
+    font-size: 20px;
+}
+.nutaction{
+    border-radius: 41px;
+}
+.noidung{
+    background-color: #c0d6c8;
+}
+.noidung2{
+    color:#173c61;
+
+}
+.sp{
+    width: 100%;  
+    height: auto;
+    position: relative;
+}
+.sp img{
+    width: 100%;
+    height: 358px;
+}
+.sp .ten{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: #c0d6c88c;
+    z-index: 2;
+    top: 0;
+    transition: 0.5s;
+    color: white;
+    opacity: 0;
+}
+.goi{
+    position:absolute;
+    height: 50px;
+    top:50%;
+    margin-top: -25px;
+    text-align: center;
+    width: 100%;
+    font-size: 28px;
+}
+.sp:hover  .ten{
+    opacity: 1;
+}
+.danhmuc{
+    font-style: italic;
+    font-size: 15px;
+}
+.tenchitiet{
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+}
+
+.noidung3 .col-sm-4 {
+    padding:0px;
 }
