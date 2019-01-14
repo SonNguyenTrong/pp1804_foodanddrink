@@ -86,3 +86,32 @@
     });
 </script>
 @stop
+@section('script')
+<script>
+    $(document).ready(function() {
+        console.log( "ready!" );
+        $(".btn-order").on('click', function() {
+            //$("p").slideToggle();
+            var btn_id = $(this).data('id');
+                $.ajax({
+                url: '',
+                type: 'POST',
+                //dataType: 'jsonp',
+                data: {
+                    'id': order_id
+                },
+                success: function(data) {
+                    var $title = $('<h1>').text(data.talks[0].talk_title);
+                    var $description = $('<p>').text(data.talks[0].talk_description);
+                    $('#info')
+                        .append($title)
+                        .append($description);
+                },
+                error: function() {
+                    $('#info').html('<p>An error has occurred</p>');
+                },
+            });
+        });
+    });
+</script>
+@stop
