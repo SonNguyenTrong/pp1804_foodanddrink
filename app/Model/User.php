@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Model;
+use App\Model\Comment;
+use App\Model\rate;
+
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -16,7 +19,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 
+        'email', 
+        'password',
     ];
 
     /**
@@ -27,4 +32,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function comment()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function rate()
+    {
+        return $this->hasMany(rate::class);
+    }
 }

@@ -24,7 +24,7 @@
             	<a href="{{ action('UserController@edit' , ['id' => $user->id]) }}" >
             	<button type="button" class="btn btn-success">{{trans('messages.edit')}}</button>
             	</a>
-                <form method="POST" action = {{ route('admin.users.destroy', [$user->id]) }}>
+                <form method="POST" action = {{ route('users.destroy', [$user->id]) }}>
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
                 	<a href="">

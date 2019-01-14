@@ -1,10 +1,24 @@
 <?php
 
 namespace App\Model;
+use App\Model\User;
+use App\Model\Product;
+
+
 
 use Illuminate\Database\Eloquent\Model;
 
 class Rate extends Model
 {
-    //
+    protected $table = 'rates';
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(product::class);
+    }
 }

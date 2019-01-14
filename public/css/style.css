@@ -238,4 +238,33 @@ p.email span:hover{
 }
 .anhproduct{
     height: 230px;
+}    
+.box-don-hang{
+    color:white;
+    background-color: #c10130;
+    height:56px;
+    text-align: center;
+    padding-top: 14px;
+    font-size: 18px;
+}
+.nuthieuchinh{
+    margin: 10px 350px; 
+
+}
+.nuthieuchinh a{
+    display: inline-block;
+    border: solid 1px;
+}
+.giatien{
+    margin: 10px 117px;
+    color:#f1022a;
+}
+.quantitycart{
+    margin: 10px 150px;
+}
+.totalamount{
+    text-align: center;
+}
+.totalprice{
+    color:red;
 }

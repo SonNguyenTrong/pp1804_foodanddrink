@@ -134,6 +134,17 @@ class UserController extends Controller
         \Log::info(Cart::getContent());
     
     }
-    public function removeCart(Request $request,$product_id)
 
+    public function cartpage()
+    {
+        return view('user.cart'); 
+    }
+    
+    /*public function popup()
+    {
+        $id = Auth::user()->id;
+        return response()
+            ->json(['btn_id'])
+            ->withCallback($request->input('callback'));
+    }*/
 }
