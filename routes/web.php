@@ -35,4 +35,11 @@ Route::post('/popup','ModalController@popup')->name('popup');
 
 Route::get('/cartpage','UserController@cartpage')->name('cartpage');
 
+<<<<<<< 1957449da0fa69e11f3d8ca65158d9acc8258e44
 Route::delete('/removeItem/{id}','UserController@removeCartItem')->name('removeItem');
+=======
+Route::get('/history', 'UserController@history')->name('history');
+
+Route::get('/comment', 'UserController@comment')->name('comment');
+
+>>>>>>> history&comment

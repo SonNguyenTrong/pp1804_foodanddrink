@@ -146,7 +146,18 @@ class UserController extends Controller
     public function removeCartItem(Request $request, $id)
     {
         Cart::remove($id);
-
-        return redirect()->route('cartpage');
+        
+        return redirect()->route(cartpage);
     }
+    
+    public function history()
+    {
+        return view('user.history');
+    }
+
+    public function comment()
+    {
+        return view('user.profile.comment');
+    }
+
 }

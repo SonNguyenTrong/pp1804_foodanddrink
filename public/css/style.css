@@ -239,6 +239,7 @@ p.email span:hover{
 .anhproduct{
     height: 230px;
 }    
+/*cart*/
 .box-don-hang{
     color:white;
     background-color: #c10130;
@@ -270,4 +271,38 @@ p.email span:hover{
 }
 .name-product {
     color: #000;
+}
+/*history*/
+
+div.history-table {
+    margin-top: 20px;
+}
+div.history-table .history-table-row .history-table-cell {
+    float: left;
+    padding: 10px 40px;
+    border: 1px solid black;
+}
+.stt{
+    font-weight: bold;
+}
+.madonhang{
+    font-weight: bold;
+}
+.thoigian{
+    font-weight: bold;
+}
+.diadiem{
+    font-weight: bold;
+}
+.nhanvien{
+    font-weight: bold;
+}
+.tongtien{
+    font-weight: bold;
+}
+.trangthai{
+    font-weight: bold;
+}
+.chitiet{
+    font-weight: bold;
 }

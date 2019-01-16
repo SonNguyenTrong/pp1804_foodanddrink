@@ -59,4 +59,5 @@ return [
     'close' => 'Close',
     'totalprice' => 'Total Price',
     'price' => 'Price',
+    'history' => 'History'
 ];
