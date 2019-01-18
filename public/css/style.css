@@ -228,3 +228,14 @@ p.email span a{
 p.email span:hover{
     text-decoration:underline; 
 }
+.modal-open .modal{
+    opacity: 1;
+    padding-top:160px;
+}
+.quantitybox{
+    height: 38px;
+    padding-bottom: 6px;
+}
+.anhproduct{
+    height: 230px;
+}

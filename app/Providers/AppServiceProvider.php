@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Cart;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer(['user.master'], function ($view) {
+            $cartCollection = Cart::getContent();
+            $view->with([
+                'cartCollection' => $cartCollection,
+            ]);
+        });
     }
 
     /**

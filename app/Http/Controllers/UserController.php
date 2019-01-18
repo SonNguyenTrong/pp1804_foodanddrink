@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\User;
+use App\Model\Product;
 use Auth;
+use Cart;
 
 class UserController extends Controller
 {
@@ -116,5 +118,22 @@ class UserController extends Controller
 
         return redirect()->route('home');
     }
+
+    public function saveCart(Request $request)
+    {
+        $product = Product::findOrFail($request->product_id);
+
+        Cart::add(array(
+            'id' => $product->id,
+            'name' => $product->name,
+            'price' => $product->prise,
+            'quantity' => '1',
+
+        ));
+
+        \Log::info(Cart::getContent());
+    
+    }
+    public function removeCart(Request $request,$product_id)
 
 }

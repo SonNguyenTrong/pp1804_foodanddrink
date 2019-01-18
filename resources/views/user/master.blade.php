@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -22,8 +21,14 @@
 
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&amp;subset=vietnamese" rel="stylesheet">
 
+    <!-- jquery -->
+
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+
+
 </head>
 <body>
+<meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="top">
         <div class="container">
             <nav class="navbar navbar-dark bg-faded navbar-fixed-top menutren">
@@ -306,13 +311,11 @@
         </div>
     </div>
 
-    <!-- jquery -->
-
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script type="text/javascript"></script>
     
     <!-- bootstrap -->
     
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
 </body>
 </html>
