@@ -127,24 +127,26 @@ class UserController extends Controller
             'id' => $product->id,
             'name' => $product->name,
             'price' => $product->prise,
-            'quantity' => '1',
-
+            'quantity' => $request->quantity,
+            'image' => $product->images,
         ));
 
-        \Log::info(Cart::getContent());
+        return response()->json($product);
     
     }
 
     public function cartpage()
     {
-        return view('user.cart'); 
+        $cartCollection = Cart::getContent();
+        $cartCollection->toArray();
+
+        return view('user.cart', compact('cartCollection')); 
     }
-    
-    /*public function popup()
+
+    public function removeCartItem(Request $request, $id)
     {
-        $id = Auth::user()->id;
-        return response()
-            ->json(['btn_id'])
-            ->withCallback($request->input('callback'));
-    }*/
+        Cart::remove($id);
+
+        return redirect()->route('cartpage');
+    }
 }

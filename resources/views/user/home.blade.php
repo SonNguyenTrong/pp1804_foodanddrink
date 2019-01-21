@@ -12,21 +12,19 @@
                         <h4 class="card-title">{{ $product->name }}</h4>
                         <p class="card-text">{{ $product->description }}</p>
                         <form name="addToCartForm">
-                            <input type="hidden" class="inputid" value="{{ $product->id }}"/>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">{{ trans('messages.detail') }}</button>
+                            <button data-product-id="{{ $product->id }}" data-product-name="{{ $product->name }}" type="button" class="btn btn-primary detail-order" data-toggle="modal" data-target="#exampleModal">{{ trans('messages.detail') }}</button>
                             <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">
-                                            <!-- HEADER -->
+                                                <!-- HEADER -->
                                             </h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
+                                                <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <!-- Detail -->
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('messages.close' )}}</button>
@@ -42,36 +40,49 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>    
+                        </form>
                     </div>
                 </div>
-            </div>  
+            </div>
             @endforeach
         </div>
         {{ $listProduct->links() }}
-    </div> {{-- end container --}}
-</div>    {{-- end foodlist --}}
-
+    </div>
+    {{-- end container --}}
+</div>
+{{-- end foodlist --}}
 <script type="text/javascript">
+    var productId;
+    $('.detail-order').click(function(){
+        productId = $(this).data('product-id');
+        var nameProduct = $(this).data('product-name');
+        $(".detail-product").remove();
+        $(".modal-body").append($("<p>", {
+            class: "detail-product",
+            css: {
+                'float': 'left',
+                'color': 'black',
+            }
+        }).text('Name:' + nameProduct));
+    });
+
     $('.submitbutton').click(function() {
         var quantity = $('[name=quantity]').val();
         var baseUrl = window.location.origin+window.location.pathname.split('/')[0] + '/';
-        var url = baseUrl + ('cart')
-        var pos = $(this).parent().find('.inputid').val();
-        console.log(url);
+        var url = baseUrl + ('cart');
         $.ajax({
             url: url,
             type: 'POST',
             data: {
-                'product_id': pos, 
+                'product_id': productId, 
                 'quantity' : quantity,
                 _token: $('meta[name="csrf-token"]').attr('content'),
             },
             
             success: function (data) {
-                alert('Success');
+                return data;
             }
         });
     });
 </script>
-
+@stop

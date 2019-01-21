@@ -43,11 +43,11 @@
                                 <a class="nav-link" href="#">{{ trans('messages.menu') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">{{ trans('messages.cart') }}</a>
+                                <a class="nav-link" href="/cartpage">{{ trans('messages.cart') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/logout">{{ trans('messages.logout') }}</a>
-                            </li>    
+                            </li>
                         @else
                             <li class="nav-item active">
                                 <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">{{ trans('messages.login') }} <span class="sr-only">(current)</span></a>
@@ -253,10 +253,9 @@
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-
+                                
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
