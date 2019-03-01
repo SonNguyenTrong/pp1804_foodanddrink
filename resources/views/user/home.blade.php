@@ -1,49 +1,5 @@
 @extends('user.master')
 @section('content')
-//
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Order
-</button>
-<!-- Modal -->
-<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                powerless
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-//
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalLabel">p2</button>
-<div class="modal" id="modalLabel" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">powerless</div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-//
 <div class="noidung p-4 text-sm-center">
     <div class="container">
         <h5 class="toprate">{{ trans('messages.toprate') }}</h5>
@@ -56,7 +12,7 @@
                         <h4 class="card-title">{{ $product->name }}</h4>
                         <p class="card-text">{{ $product->description }}</p>
                         <form name="addToCartForm">
-                            <button data-product-id="{{ $product->id }}" data-product-name="{{ $product->name }}" type="button" class="btn btn-primary detail-order" data-toggle="modal" data-target="#exampleModal">{{ trans('messages.detail') }}</button>
+                            <button data-product-id="{{ $product->id }}" data-product-name="{{ $product->name }}" data-product-price="{{ $product->prise }}" type="button" class="btn btn-primary detail-order" data-toggle="modal" data-target="#exampleModal">{{ trans('messages.detail') }}</button>
                             <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -97,9 +53,12 @@
 {{-- end foodlist --}}
 <script type="text/javascript">
     var productId;
+    var productImage;
     $('.detail-order').click(function(){
+        productImage = $(this).data('product-image');
         productId = $(this).data('product-id');
         var nameProduct = $(this).data('product-name');
+        var priceProduct = $(this).data('product-price');
         $(".detail-product").remove();
         $(".modal-body").append($("<p>", {
             class: "detail-product",
@@ -108,8 +67,16 @@
                 'color': 'black',
             }
         }).text('Name:' + nameProduct));
+        $(".modal-body").append($("<p>", {
+            class: "detail-product",
+            css: {
+                'padding-right' : '30px',
+                'float': 'right',
+                'color': 'black',
+            }
+        }).text('Price:' + priceProduct));
     });
-
+    
     $('.submitbutton').click(function() {
         var quantity = $('[name=quantity]').val();
         var baseUrl = window.location.origin+window.location.pathname.split('/')[0] + '/';
@@ -120,41 +87,13 @@
             data: {
                 'product_id': productId, 
                 'quantity' : quantity,
+                'image' : productImage,
                 _token: $('meta[name="csrf-token"]').attr('content'),
             },
             
             success: function (data) {
                 return data;
             }
-        });
-    });
-</script>
-@stop
-@section('script')
-<script>
-    $(document).ready(function() {
-        console.log( "ready!" );
-        $(".btn-order").on('click', function() {
-            //$("p").slideToggle();
-            var btn_id = $(this).data('id');
-                $.ajax({
-                url: '',
-                type: 'POST',
-                //dataType: 'jsonp',
-                data: {
-                    'id': order_id
-                },
-                success: function(data) {
-                    var $title = $('<h1>').text(data.talks[0].talk_title);
-                    var $description = $('<p>').text(data.talks[0].talk_description);
-                    $('#info')
-                        .append($title)
-                        .append($description);
-                },
-                error: function() {
-                    $('#info').html('<p>An error has occurred</p>');
-                },
-            });
         });
     });
 </script>

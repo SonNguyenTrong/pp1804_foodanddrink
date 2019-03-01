@@ -51,6 +51,7 @@
                 </div>
                 <div class="col-md-2">
                         <button type="submit" class="btn btn-success">Save</button>
+                        <button type="reset" class="btn btn-success">Cancel</button>
                 </div>
             </div>
             <div class="row">

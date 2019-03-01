@@ -1,4 +1,4 @@
-*{margin: 0; padding: 0;}
+
 html,body {
     width: 100%;
     height: 100%;
@@ -239,6 +239,15 @@ p.email span:hover{
 .anhproduct{
     height: 230px;
 }    
+.user-create{
+    display: inline-block;
+}
+.create{
+    float: right;
+}
+.search{
+    float: left;
+}
 /*cart*/
 .box-don-hang{
     color:white;
@@ -282,27 +291,11 @@ div.history-table .history-table-row .history-table-cell {
     padding: 10px 40px;
     border: 1px solid black;
 }
-.stt{
-    font-weight: bold;
+.removebtn{
+    padding:0;
 }
-.madonhang{
-    font-weight: bold;
-}
-.thoigian{
-    font-weight: bold;
-}
-.diadiem{
-    font-weight: bold;
-}
-.nhanvien{
-    font-weight: bold;
-}
-.tongtien{
-    font-weight: bold;
-}
-.trangthai{
-    font-weight: bold;
-}
-.chitiet{
-    font-weight: bold;
+.content{
+    display: flex;
+    align-items: center;
+    padding-left:300px;
 }

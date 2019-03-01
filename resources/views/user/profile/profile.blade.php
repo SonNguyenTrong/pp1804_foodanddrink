@@ -50,14 +50,14 @@
                 </div>
                 <div class="col-md-2">
                 <a href="editprofile" >
-            	    <button type="button" class="btn editbtn">{{trans('messages.editprofile')}}</button>
+                    <button type="button" class="btn editbtn">{{trans('messages.editprofile')}}</button>
             	</a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-work">
-                        <p>WORK LINK</p>
+                        <a href="home">HOME</a><br/>
                         <a href="">Website Link</a><br/>
                         <a href="">Bootsnipp Profile</a><br/>
                         <a href="">Bootply Profile</a>

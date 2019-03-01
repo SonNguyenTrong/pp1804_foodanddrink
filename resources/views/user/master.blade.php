@@ -32,8 +32,9 @@
     <div class="top">
         <div class="container">
             <nav class="navbar navbar-dark bg-faded navbar-fixed-top menutren">
-                <a class="navbar-brand logo" href="#">SOTA.food</a>
+                <a class="navbar-brand logo" href="home">SOTA.food</a>
                 <ul class="navbar-nav flex-md-row menutrenphai">
+                
                     @if (Route::has('login'))
                         @auth
                             <li class="nav-item active">
@@ -43,7 +44,7 @@
                                 <a class="nav-link" href="history">{{ trans('messages.history') }} <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">{{ trans('messages.menu') }}</a>
+                                <a class="nav-link" href="/menu">{{ trans('messages.menu') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/cartpage">{{ trans('messages.cart') }}</a>
